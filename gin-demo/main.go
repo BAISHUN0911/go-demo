@@ -24,6 +24,7 @@ func main() {
 
 	// 4. 路由
 	r.GET("/login", handler.LoginHandler)
+	r.POST("/sys/authorities", handler.SysAuthorities)
 
 	// 5. 启动
 	port := fmt.Sprintf(":%d", configx.Server.Port)

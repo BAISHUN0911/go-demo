@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func FormatStr() {
+func DecodeStr() {
 	str := "5Yqg5YWlR1ZB5Lqk5rWB576k"
 	decodeBytes, err := base64.StdEncoding.DecodeString(str)
 	fmt.Println(decodeBytes, err)

@@ -1,6 +1,9 @@
 package common
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func SliceDemo() {
 	// This is a demo function for slice operations in Go.
@@ -16,5 +19,15 @@ func SliceDemo() {
 	for i := range 3 {
 		fmt.Println("i的地址: ", &i, " i的值: ", i)
 	}
+
+}
+
+func SliceDemo2() {
+	keyStr := "iCoach:track:2025-12-24:course:count:0:999"
+	parts := strings.Split(keyStr, ":")
+
+	fmt.Println(parts)
+	fmt.Println(parts[4])
+	fmt.Println(parts[7-1])
 
 }

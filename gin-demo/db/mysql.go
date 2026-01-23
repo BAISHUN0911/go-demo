@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"gin-demo/configx"
+	"gin-demo/model"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -29,6 +30,12 @@ func InitMySQL() {
 	sqlDB.SetMaxOpenConns(cfg.MaxOpenConns)
 	sqlDB.SetMaxIdleConns(cfg.MaxIdleConns)
 	sqlDB.SetConnMaxLifetime(time.Duration(cfg.MaxLifetime) * time.Second)
+
+	// 添加自动迁移
+	err = DB.AutoMigrate(model.AllModels()...)
+	if err != nil {
+		log.Fatal("数据库迁移失败:", err)
+	}
 
 	log.Println("MySQL连接成功")
 }

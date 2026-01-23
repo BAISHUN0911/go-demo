@@ -26,7 +26,10 @@ func main() {
 	r.GET("/login", handler.LoginHandler)
 	r.POST("/sys/authorities", handler.SysAuthorities)
 
+	r.SetTrustedProxies(nil)
+
 	// 5. 启动
 	port := fmt.Sprintf(":%d", configx.Server.Port)
+	
 	r.Run(port)
 }

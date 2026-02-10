@@ -5,5 +5,6 @@ import (
 )
 
 func TestOperatorDemo(t *testing.T) {
-	OperatorDemo()
+	// OperatorDemo()
+	Calculation()
 }

@@ -2,6 +2,7 @@ package str
 
 import (
 	"encoding/base64"
+	"encoding/json"
 	"fmt"
 )
 
@@ -25,4 +26,20 @@ func DecodeStr() {
 	fmt.Println(target_url)
 	// 格式化参数生成格式化的字符串并写入标准输出
 	fmt.Printf(url, stockcode, enddate)
+}
+
+func JsonToStr() {
+	type userAttr struct {
+		A int `json:"a"`
+		B int `json:"b"`
+	}
+
+	type user struct {
+		Name string     `json:"name"`
+		Attr []userAttr `json:"attr"`
+	}
+	userData := user{Name: "Tom", Attr: []userAttr{{A: 1, B: 2}, {A: 3, B: 4}}}
+
+	data, _ := json.Marshal(userData)
+	fmt.Println(string(data)) // 这样打印出来的是标准的 JSON，没有多余的反斜杠
 }
